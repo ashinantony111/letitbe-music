@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>LET IT BE – Music Streaming Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- make sure this file exists in the same folder -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="drakystyle.css" />
+</head>
+
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>LET IT BE</span>
+      </div>
+
+      <nav class="menu">
+        <a href="#" class="menu-item active">Home</a>
+        <a href="#" class="menu-item">Artists</a>
+        <a href="#" class="menu-item">Releases</a>
+        <a href="#" class="menu-item">Events</a>
+        <a href="#" class="menu-item">Podcasts</a>
+        <a href="#" class="menu-item">Store</a>
+        <a href="#" class="menu-item">News</a>
+      </nav>
+
+      <div class="sidebar-player">
+        <div class="sidebar-track-info">
+          <div class="sidebar-track-title" id="mini-title">Epic Cinematic</div>
+          <div class="sidebar-track-artist" id="mini-artist">AudioPizza</div>
+        </div>
+        <div class="sidebar-player-controls">
+          <button id="mini-prev">⏮</button>
+          <button id="mini-play">▶</button>
+          <button id="mini-next">⏭</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <header class="topbar">
+        <nav class="top-links">
+          <a href="#" class="nav-link" data-page="Profile">Profile</a>
+          <a href="#" class="nav-link" data-page="About">About</a>
+          <a href="#" class="nav-link" data-page="Contacts">Contacts</a>
+        </nav>
+        <div class="search-wrapper">
+          <input type="text" id="search-input" placeholder="Artist, track or podcast" />
+        </div>
+        <div class="user-actions">
+          <button class="icon-btn">🔔</button>
+          <button class="icon-btn">⚙️</button>
+          <button class="btn-outline">Sign in</button>
+        </div>
+      </header>
+
+      <div id="page-home" class="page-section">
+        <section class="hero">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Feel the Music. Live the Moment.</h1>
+            <p>Your personal music universe — discover new artists, explore genres, and stream high-quality audio wherever you are.</p>
+            <div class="hero-buttons">
+              <button class="btn-primary" onclick="playAudio()">▶ Start Listening</button>
+              <button class="btn-secondary">Explore Artists</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="genres">
+          <div class="section-header">
+            <h2>Browse by Genre</h2>
+          </div>
+          <div class="genre-list">
+            <button class="genre-chip active" data-genre="All">All</button>
+            <button class="genre-chip" data-genre="Metal">Metal</button>
+            <button class="genre-chip" data-genre="Latin">Latin</button>
+            <button class="genre-chip" data-genre="EDM">EDM</button>
+            <button class="genre-chip" data-genre="Trance">Trance</button>
+            <button class="genre-chip" data-genre="Rock">Rock</button>
+            <button class="genre-chip" data-genre="Lo-Fi">Lo-Fi</button>
+          </div>
+        </section>
+
+        <section class="releases">
+          <div class="section-header">
+            <h2>New Releases</h2>
+            <button class="link-btn">See all →</button>
+          </div>
+          <div class="card-grid" id="song-grid">
+          </div>
+        </section>
+      </div>
+
+      <div id="page-artists" class="page-section" style="display: none;">
+        <div class="section-header">
+          <h2>Featured Artists</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-cover" style="background: linear-gradient(45deg, #ff9a9e, #fad0c4);"></div>
+            <div class="card-body">
+              <div class="card-title">AudioPizza</div>
+              <div class="card-artist">1.2M Followers</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: linear-gradient(45deg, #a18cd1, #fbc2eb);"></div>
+            <div class="card-body">
+              <div class="card-title">Neon Dreams</div>
+              <div class="card-artist">850k Followers</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: linear-gradient(45deg, #84fab0, #8fd3f4);"></div>
+            <div class="card-body">
+              <div class="card-title">Cyber Pulse</div>
+              <div class="card-artist">2.1M Followers</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: linear-gradient(45deg, #fccb90, #d57eeb);"></div>
+            <div class="card-body">
+              <div class="card-title">Luna Eclipse</div>
+              <div class="card-artist">500k Followers</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: linear-gradient(45deg, #e0c3fc, #8ec5fc);"></div>
+            <div class="card-body">
+              <div class="card-title">Solar Flare</div>
+              <div class="card-artist">3.4M Followers</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="page-releases" class="page-section" style="display: none;">
+        <div class="section-header">
+          <h2>Latest Releases</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-cover" style="background: #333;"></div>
+            <div class="card-body">
+              <div class="card-title">Midnight City</div>
+              <div class="card-artist">Single • 2025</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: #444;"></div>
+            <div class="card-body">
+              <div class="card-title">Echoes of Time</div>
+              <div class="card-artist">Album • 2025</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: #555;"></div>
+            <div class="card-body">
+              <div class="card-title">Neon Nights</div>
+              <div class="card-artist">EP • 2025</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="page-events" class="page-section" style="display: none;">
+        <h2>Upcoming Events</h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+          <div style="background: #121527; padding: 20px; border-radius: 18px; border: 1px solid var(--border-subtle);">
+            <h3>🚀 Live at The Arena</h3>
+            <p style="color:var(--text-muted); margin: 5px 0 15px;">Dec 24, 2025 • London, UK</p>
+            <button class="btn-primary">Buy Tickets</button>
+          </div>
+          <div style="background: #121527; padding: 20px; border-radius: 18px; border: 1px solid var(--border-subtle);">
+            <h3>🎹 Synthwave Festival</h3>
+            <p style="color:var(--text-muted); margin: 5px 0 15px;">Jan 15, 2026 • Berlin, DE</p>
+            <button class="btn-primary">Buy Tickets</button>
+          </div>
+          <div style="background: #121527; padding: 20px; border-radius: 18px; border: 1px solid var(--border-subtle);">
+            <h3>🎸 Rock Legends Tour</h3>
+            <p style="color:var(--text-muted); margin: 5px 0 15px;">Feb 02, 2026 • New York, USA</p>
+            <button class="btn-primary">Buy Tickets</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-store" class="page-section" style="display: none;">
+        <h2>Merch Store</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-cover" style="background: #222;"></div>
+            <div class="card-body">
+              <div class="card-title">Official T-Shirt</div>
+              <div class="card-artist">$25.00</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: #2a2a2a;"></div>
+            <div class="card-body">
+              <div class="card-title">LET IT BE Hoodie</div>
+              <div class="card-artist">$45.00</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: #333;"></div>
+            <div class="card-body">
+              <div class="card-title">Vinyl Collection</div>
+              <div class="card-artist">$30.00</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="page-podcasts" class="page-section" style="display: none;">
+        <h2>Podcasts</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-cover" style="background: #1a1a1a;"></div>
+            <div class="card-body">
+              <div class="card-title">Music Talk</div>
+              <div class="card-artist">Ep. 42: Production Tips</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-cover" style="background: #222;"></div>
+            <div class="card-body">
+              <div class="card-title">Behind the Scenes</div>
+              <div class="card-artist">Ep. 12: Tour Life</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="page-news" class="page-section" style="display: none;">
+        <h2>Latest News</h2>
+        <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+          <div style="background: #121527; padding: 20px; border-radius: 18px; border: 1px solid var(--border-subtle);">
+            <h3>New Feature: High Quality Audio</h3>
+            <p style="color:var(--text-muted); margin-top: 5px;">We are rolling out lossless audio streaming for all
+              premium users starting next week.</p>
+          </div>
+          <div style="background: #121527; padding: 20px; border-radius: 18px; border: 1px solid var(--border-subtle);">
+            <h3>Artist Spotlight: Cyber Pulse</h3>
+            <p style="color:var(--text-muted); margin-top: 5px;">Read our exclusive interview with the rising star of
+              the synthwave scene.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Sections -->
+      <div id="page-profile" class="page-section" style="display: none;">
+        <h2>User Profile</h2>
+        <div
+          style="background: #121527; padding: 30px; border-radius: 24px; margin-top: 20px; display: flex; align-items: center; gap: 30px;">
+          <div
+            style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: #000;">
+            U</div>
+          <div>
+            <h3 style="font-size: 1.5rem;">User Name</h3>
+            <p style="color: var(--text-muted);">Premium Member</p>
+            <button class="btn-outline" style="margin-top: 10px;">Edit Profile</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-about" class="page-section" style="display: none;">
+        <h2>About LET IT BE</h2>
+        <div style="max-width: 600px; margin-top: 20px;">
+          <p style="line-height: 1.6; color: var(--text-muted);">
+            LET IT BE is a music streaming platform born from a love of sound and a passion for connecting people through music.
+            We believe every artist deserves to be heard, and every listener deserves an experience that moves them.
+          </p>
+          <br>
+          <p style="line-height: 1.6; color: var(--text-muted);">
+            Founded in 2025, we've built a home for independent voices and iconic sounds — over 1 million tracks and growing.
+          </p>
+        </div>
+      </div>
+
+      <div id="page-contacts" class="page-section" style="display: none;">
+        <h2>Contact Us</h2>
+        <div style="max-width: 500px; margin-top: 20px; background: #121527; padding: 30px; border-radius: 24px;">
+          <form style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" placeholder="Your Name"
+              style="padding: 12px; border-radius: 10px; border: 1px solid var(--border-subtle); background: #080a11; color: white;">
+            <input type="email" placeholder="Your Email"
+              style="padding: 12px; border-radius: 10px; border: 1px solid var(--border-subtle); background: #080a11; color: white;">
+            <textarea placeholder="Message" rows="4"
+              style="padding: 12px; border-radius: 10px; border: 1px solid var(--border-subtle); background: #080a11; color: white;"></textarea>
+            <button class="btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <section class="player">
+        <div class="player-left">
+          <img id="player-cover" src="cover.jpg" alt="Cover" class="player-cover" />
+          <div class="player-meta">
+            <div id="player-title" class="player-title">Click any track to play</div>
+            <div id="player-artist" class="player-artist">Select a track to play</div>
+          </div>
+        </div>
+        <div class="player-center">
+          <div class="player-controls">
+            <button id="prev-btn">⏮</button>
+            <button id="play-btn">▶</button>
+            <button id="next-btn">⏭</button>
+          </div>
+          <div class="player-timeline">
+            <span id="current-time">0:00</span>
+            <input type="range" id="seek-bar" min="0" value="0" />
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+        <div class="player-right">
+          <span>🔊</span>
+          <input type="range" id="volume-bar" min="0" max="1" step="0.01" value="0.8" />
+          <button id="expand-btn" class="icon-btn" style="margin-left: 10px;">⤢</button>
+        </div>
+        <audio id="audio"></audio>
+      </section>
+
+      <!-- Expanded Player Overlay -->
+      <div id="expanded-player" class="expanded-player">
+        <button id="collapse-btn" class="collapse-btn">✕</button>
+        <div class="expanded-content">
+          <img id="expanded-cover" src="cover.jpg" class="expanded-cover" />
+          <div class="expanded-info">
+            <h2 id="expanded-title">Track Title</h2>
+            <p id="expanded-artist">Artist Name</p>
+          </div>
+          <div class="expanded-controls">
+            <button id="expanded-prev">⏮</button>
+            <button id="expanded-play">▶</button>
+            <button id="expanded-next">⏭</button>
+          </div>
+          <div class="expanded-timeline">
+            <span id="expanded-current-time">0:00</span>
+            <input type="range" id="expanded-seek-bar" min="0" value="0" />
+            <span id="expanded-duration">0:00</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- make sure this file exists in the same folder -->
+  <script src="drakyscript.js"></script>
+</body>
+
+</html>
