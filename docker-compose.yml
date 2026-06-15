@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  letitbe:
+    image: ashinantony111/letitbe:v1
+    container_name: letitbe
+
+    ports:
+      - "80:80"
+
+    restart: unless-stopped
