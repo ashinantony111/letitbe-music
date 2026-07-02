@@ -1,81 +1,152 @@
-# LET IT BE - Music Streaming Platform
+# 🎵 LET IT BE - Music Streaming Platform
 
-## Project Overview
-
-LET IT BE is a music streaming web application built using HTML, CSS, and JavaScript. This project demonstrates a complete DevOps workflow including source code management, CI/CD automation, containerization, image management and application deployment using industry standard tools.
+A music streaming web application demonstrating an end-to-end DevOps CI/CD workflow using GitHub, Jenkins, Docker, Docker Hub, Docker Compose, Apache HTTP Server, and AWS EC2.
 
 ---
 
-## Architecture
+# 📖 Project Overview
 
-GitHub
-↓
-Jenkins
-↓
-Docker Build
-↓
-Docker Hub
-↓
-Docker Compose
-↓
-Apache Container
-↓
-LET IT BE Music Platform
+LET IT BE is a lightweight music streaming web application developed using HTML, CSS, and JavaScript.
+
+The primary goal of this project is to demonstrate practical DevOps concepts by automating the build, containerization, image management, and deployment process using industry-standard tools.
+
+The application is deployed inside a Docker container running Apache HTTP Server on an AWS EC2 Free Tier instance, providing a cost effective cloud environment for implementing and demonstrating DevOps practices while minimizing infrastructure costs.
+---
+
+# 🎯 Project Objectives
+
+- Develop a responsive music streaming web application.
+- Implement version control using Git and GitHub.
+- Automate the build process using Jenkins.
+- Containerize the application with Docker.
+- Store Docker images in Docker Hub.
+- Deploy the application using Docker Compose.
+- Host the application on an AWS EC2 instance.
+- Demonstrate a complete CI/CD workflow from code commit to deployment.
 
 ---
 
-## Technologies Used
+# 🏗 Architecture
 
-### Frontend
-
-* HTML5
-* CSS3
-* JavaScript
-
-### DevOps Tools
-
-* GitHub
-* Jenkins
-* Docker
-* Docker Hub
-* Docker Compose
-* Apache HTTP Server
-
----
-
-## Features
-
-* Modern Spotify-inspired UI
-* Music player interface
-* Genre-based filtering
-* Dynamic song loading using JSON
-* Responsive design
-* Multi-page navigation
-* Dockerized deployment
-* Automated CI/CD pipeline with Jenkins
+```
+                GitHub Repository
+                       │
+                       ▼
+             Jenkins CI/CD Pipeline
+                       │
+                       ▼
+              Docker Image Build
+                       │
+                       ▼
+             Push Image to Docker Hub
+                       │
+                       ▼
+         Docker Compose Deployment
+                       │
+                       ▼
+      Apache HTTP Server Container
+                       │
+                       ▼
+      LET IT BE Music Streaming App
+```
 
 ---
 
-## CI/CD Workflow
+# 🛠 Technology Stack
 
-1. Developer pushes code to GitHub
-2. Jenkins automatically pulls the latest source code
-3. Docker image is built
-4. Docker image is pushed to Docker Hub
-5. Docker Compose deploys the latest container
-6. Apache serves the application
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+
+## DevOps & Cloud
+
+- Git
+- GitHub
+- Jenkins
+- Docker
+- Docker Hub
+- Docker Compose
+- Apache HTTP Server
+- AWS EC2 (Ubuntu)
 
 ---
 
-## Docker Build
+# ✨ Features
 
-Build Docker Image
+- Modern Spotify inspired user interface
+- Music player interface
+- Genre-based filtering
+- Dynamic song loading using JSON
+- Responsive web design
+- Dockerized application deployment
+- Automated CI/CD pipeline
+- Containerized Apache web server
+- Cloud deployment on AWS EC2
+
+---
+
+# 🔄 CI/CD Workflow
+
+1. Developer pushes source code to GitHub.
+2. Jenkins automatically pulls the latest source code.
+3. Jenkins builds a Docker image.
+4. Docker image is tagged and pushed to Docker Hub.
+5. Docker Compose pulls the latest image.
+6. Apache HTTP Server serves the application from the Docker container.
+7. Users access the deployed application hosted on AWS EC2.
+
+---
+
+# ⚙ Jenkins Pipeline Stages
+
+- Git Checkout
+- Docker Image Build
+- Docker Image Tagging
+- Docker Hub Push
+- Docker Compose Deployment
+- Deployment Verification
+
+---
+
+# 📁 Project Structure
+
+```
+letitbe-music/
+
+├── Dockerfile
+├── docker-compose.yml
+├── index.html
+├── drakystyle.css
+├── drakyscript.js
+├── songs.json
+├── README.md
+└── LICENSE
+```
+
+---
+
+
+## Clone Repository
+
+```bash
+git clone https://github.com/your-username/letitbe-music.git
+
+cd letitbe-music
+```
+
+---
+
+# 🐳 Docker
+
+## Build Docker Image
 
 ```bash
 docker build -t letitbe:v1 .
 ```
 
-Run Container
+## Run Container
 
 ```bash
 docker run -d -p 8080:80 letitbe:v1
@@ -83,27 +154,31 @@ docker run -d -p 8080:80 letitbe:v1
 
 ---
 
-## Docker Hub
+# 📦 Docker Hub
 
-Push image to Docker Hub
+Tag Image
 
 ```bash
 docker tag letitbe:v1 <dockerhub-username>/letitbe:v1
+```
 
+Push Image
+
+```bash
 docker push <dockerhub-username>/letitbe:v1
 ```
 
 ---
 
-## Docker Compose
+# 🐋 Docker Compose
 
-Deploy application
+Deploy
 
 ```bash
 docker compose up -d
 ```
 
-Verify running containers
+Verify
 
 ```bash
 docker ps
@@ -111,52 +186,47 @@ docker ps
 
 ---
 
-## Jenkins Pipeline Stages
+# ☁ AWS Deployment
 
-* Git Checkout
-* Docker Build
-* Docker Image Tagging
-* Docker Hub Push
-* Deployment Verification
+The application is deployed on an Ubuntu-based AWS EC2 Free Tier instance.
 
----
+Deployment includes:
 
-## Screenshots
-
-### GitHub Repository
-
-* Source code
-* Dockerfile
-* docker-compose.yml
-* README.md
-
-### Jenkins Pipeline
-
-* Successful build
-* Docker image build stage
-* Docker Hub push stage
-
-### Docker Hub Repository
-
-* Published image
-* Image version tags
-
-### Running Container
-
-* docker ps output
-
-### LET IT BE Application
-
-* Homepage
-* Music Player Interface
-* Responsive UI
+- Jenkins Pipeline
+- Docker Engine
+- Docker Compose
+- Apache HTTP Server Container
+- Public EC2 Instance Hosting
 
 ---
 
-## Future Improvements
+# 💡 Skills Demonstrated
 
-* SSL Integration
-* Kubernetes Deployment
-* Monitoring and Logging
-* Multi-Container Architecture
-* Automated Production Deployment
+- Git & GitHub
+- Jenkins CI/CD
+- Docker & Docker Compose
+- Docker Hub
+- Linux Administration
+- Apache HTTP Server
+- AWS EC2
+- DevOps Automation
+
+---
+
+# Future Improvements
+
+- HTTPS with Let's Encrypt
+- Kubernetes Deployment
+- Monitoring with Prometheus & Grafana
+- Infrastructure as Code with Terraform
+
+---
+
+# 👨‍💻 Author
+
+**Ashin Antony**
+
+Aspiring DevOps Engineer
+
+- GitHub: https://github.com/ashinantony111
+- LinkedIn: https://www.linkedin.com/in/ashin-antony-7186b3389?utm_source=share_via&utm_content=profile&utm_medium=member_android
